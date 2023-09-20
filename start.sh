@@ -18,6 +18,7 @@ DATE_FORMAT=+%Y-%m-%d-%H:%M:%S
 [ ! -d $DATA_DIR/$ERROR_LOG_DIR ] && mkdir $DATA_DIR/$ERROR_LOG_DIR
 
 OUTPUT=$PREFIX-$(date $DATE_FORMAT)-latencies.csv
+# --add-host <TARGET_URL>:<TARGET_IP_ADDR> option in case of known hosts as target
 podman run python-stress-test:v0.1 2> $DATA_DIR/$ERROR_LOG_DIR/$PREFIX-$(date $DATE_FORMAT)-req-errors.txt 1> $DATA_DIR/$OUTPUT &
 
 sleep 1
